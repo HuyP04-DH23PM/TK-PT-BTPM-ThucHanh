@@ -1,6 +1,3 @@
-﻿/// <summary>
-/// A 'ConcreteProduct' class
-/// </summary>
-class ExperiencePage : Page
+﻿class ExperiencePage : Page
 {
 }

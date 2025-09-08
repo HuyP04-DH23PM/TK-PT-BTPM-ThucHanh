@@ -1,15 +1,15 @@
-﻿/// <summary>
-/// A 'ConcreteCreator' class
-/// </summary>
+﻿// 'Report' là một ConcreteCreator (cụ thể hóa Document)
+// Nó override phương thức Factory Method để tạo ra các trang đặc thù cho Report
 class Report : Document
 {
-    // Factory Method implementation
+    // Cài đặt Factory Method
     public override void CreatePages()
     {
-        Pages.Add(new IntroductionPage());
-        Pages.Add(new ResultsPage());
-        Pages.Add(new ConclusionPage());
-        Pages.Add(new SummaryPage());
-        Pages.Add(new BibliographyPage());
+        // Mỗi Report sẽ bao gồm các trang sau:
+        Pages.Add(new IntroductionPage());   // Giới thiệu
+        Pages.Add(new ResultsPage());        // Kết quả
+        Pages.Add(new ConclusionPage());     // Kết luận
+        Pages.Add(new SummaryPage());        // Tóm tắt
+        Pages.Add(new BibliographyPage());   // Tài liệu tham khảo
     }
 }

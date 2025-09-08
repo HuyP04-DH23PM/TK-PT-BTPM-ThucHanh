@@ -1,6 +1,3 @@
-﻿/// <summary>
-/// A 'ConcreteProduct' class
-/// </summary>
-class ConcreteProductB : Product
+﻿class ConcreteProductB : Product
 {
 }

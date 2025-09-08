@@ -1,32 +1,32 @@
-﻿public class Program
+﻿using System;
+
+public class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            // Tạo ra một file cấu trúc
+        // Tạo ra một cây cấu trúc gốc (root)
+        Composite root = new Composite("root");
+        root.Add(new Leaf("Leaf A"));  // Thêm lá A vào root
+        root.Add(new Leaf("Leaf B"));  // Thêm lá B vào root
 
-            Composite root = new Composite("root");
-            root.Add(new Leaf("Leaf A"));
-            root.Add(new Leaf("Leaf B"));
+        // Tạo một Composite con (nhánh X)
+        Composite comp = new Composite("Composite X");
+        comp.Add(new Leaf("Leaf XA")); // Thêm lá XA vào nhánh X
+        comp.Add(new Leaf("Leaf XB")); // Thêm lá XB vào nhánh X
 
-            Composite comp = new Composite("Composite X");
-            comp.Add(new Leaf("Leaf XA"));
-            comp.Add(new Leaf("Leaf XB"));
+        // Thêm nhánh X vào root
+        root.Add(comp);
+        root.Add(new Leaf("Leaf C"));  // Thêm lá C vào root
 
-            root.Add(comp);
-            root.Add(new Leaf("Leaf C"));
+        // Tạo thêm một lá, rồi thêm vào root và sau đó xóa đi
+        Leaf leaf = new Leaf("Leaf D");
+        root.Add(leaf);
+        root.Remove(leaf);
 
-            // Tạo và xoá nút lá
+        // Hiển thị toàn bộ cây theo cấu trúc đệ quy
+        root.Display(1);
 
-            Leaf leaf = new Leaf("Leaf D");
-            root.Add(leaf);
-            root.Remove(leaf);
-
-            // Hiển thị cây đệ quy
-
-            root.Display(1);
-
-            // Chờ đợi người dùng
-
-            Console.ReadKey();
-        }
+        // Dừng màn hình console chờ người dùng nhấn phím
+        Console.ReadKey();
     }
+}

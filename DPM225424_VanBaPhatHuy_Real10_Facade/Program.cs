@@ -1,22 +1,21 @@
-﻿
-    public class Program
+﻿public class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            // Facade
+        // Tạo đối tượng Facade (Mortgage)
+        Mortgage mortgage = new Mortgage();
 
-            Mortgage mortgage = new Mortgage();
+        // Tạo khách hàng cần vay tiền
+        Customer customer = new Customer("Ann McKinsey");
 
-            // Evaluate mortgage eligibility for customer
+        // Kiểm tra điều kiện vay cho khách hàng với số tiền 125,000
+        bool eligible = mortgage.IsEligible(customer, 125000);
 
-            Customer customer = new Customer("Ann McKinsey");
-            bool eligible = mortgage.IsEligible(customer, 125000);
+        // Thông báo kết quả: Được duyệt hay bị từ chối
+        Console.WriteLine("\n" + customer.Name +
+                " đã được " + (eligible ? "DUYỆT" : "TỪ CHỐI"));
 
-            Console.WriteLine("\n" + customer.Name +
-                    " has been " + (eligible ? "Approved" : "Rejected"));
-
-            // Wait for user
-
-            Console.ReadKey();
-        }
+        // Dừng màn hình, chờ người dùng nhấn phím
+        Console.ReadKey();
     }
+}

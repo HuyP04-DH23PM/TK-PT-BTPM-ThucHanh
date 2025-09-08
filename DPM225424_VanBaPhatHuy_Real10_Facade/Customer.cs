@@ -1,14 +1,14 @@
 ﻿public class Customer
 {
-    private string name;
+    private string name; // Tên khách hàng
 
-    // Constructor
-
+    // Hàm khởi tạo: gán tên cho khách hàng
     public Customer(string name)
     {
         this.name = name;
     }
 
+    // Thuộc tính chỉ đọc: trả về tên khách hàng
     public string Name
     {
         get { return name; }

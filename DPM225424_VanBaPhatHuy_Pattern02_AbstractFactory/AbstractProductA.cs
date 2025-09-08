@@ -1,6 +1,3 @@
-﻿/// <summary>
-/// The 'AbstractProductA' abstract class
-/// </summary>
-abstract class AbstractProductA
+﻿abstract class AbstractProductA
 {
 }

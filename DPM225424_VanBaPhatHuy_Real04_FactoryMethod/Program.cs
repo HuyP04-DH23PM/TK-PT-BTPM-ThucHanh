@@ -1,30 +1,28 @@
-﻿using System.Reflection.Metadata;
+﻿using System;
 
-/// <summary>
-/// MainApp startup class for Real-World 
-/// Factory Method Design Pattern.
-/// </summary>
+// Demo Factory Method Pattern trong tình huống thực tế: Document & Page
 class MainApp
 {
-    /// <summary>
-    /// Entry point into console application.
-    /// </summary>
     static void Main()
     {
-        // Note: constructors call Factory Method
+        // Lưu ý: Constructor của Document sẽ tự động gọi Factory Method CreatePages()
+
+        // Tạo mảng Document gồm 2 loại tài liệu: Resume và Report
         Document[] documents = new Document[2];
         documents[0] = new Resume();
         documents[1] = new Report();
-        // Display document pages
+
+        // Hiển thị danh sách các trang của từng Document
         foreach (Document document in documents)
         {
-            Console.WriteLine("\n" + document.GetType().Name + "--");
+            Console.WriteLine("\n" + document.GetType().Name + " --");
             foreach (Page page in document.Pages)
             {
                 Console.WriteLine(" " + page.GetType().Name);
             }
         }
-        // Wait for user
+
+        // Dừng màn hình console chờ người dùng nhấn phím
         Console.ReadKey();
     }
 }

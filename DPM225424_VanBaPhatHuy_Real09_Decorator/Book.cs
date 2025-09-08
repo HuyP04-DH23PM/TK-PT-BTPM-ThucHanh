@@ -1,10 +1,9 @@
 ﻿public class Book : LibraryItem
 {
-    private string author;
-    private string title;
+    private string author; // Tác giả
+    private string title;  // Tựa sách
 
-    // Constructor
-
+    // Hàm khởi tạo: nhận vào tác giả, tựa sách và số lượng bản sao
     public Book(string author, string title, int numCopies)
     {
         this.author = author;
@@ -12,11 +11,12 @@
         this.NumCopies = numCopies;
     }
 
+    // Hiển thị thông tin sách
     public override void Display()
     {
         Console.WriteLine("\nBook ------ ");
-        Console.WriteLine(" Author: {0}", author);
-        Console.WriteLine(" Title: {0}", title);
-        Console.WriteLine(" # Copies: {0}", NumCopies);
+        Console.WriteLine(" Tác giả   : {0}", author);
+        Console.WriteLine(" Tựa sách  : {0}", title);
+        Console.WriteLine(" Số bản sao: {0}", NumCopies);
     }
 }

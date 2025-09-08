@@ -1,6 +1,3 @@
-﻿/// <summary>
-/// The 'AbstractProductA' abstract class
-/// </summary>
-abstract class Herbivore
+﻿abstract class Herbivore
 {
 }

@@ -3,35 +3,29 @@ using System.Collections.Generic;
 
 namespace Bridge.RealWorld
 {
-    /// <summary>
-    /// Bridge Design Pattern
-    /// </summary>
-
+    // Demo Bridge Design Pattern
     public class Program
     {
         public static void Main(string[] args)
         {
-            // Create RefinedAbstraction
-
+            // Tạo RefinedAbstraction
             var customers = new Customers();
 
-            // Set ConcreteImplementor
-
+            // Gán ConcreteImplementor (nguồn dữ liệu cụ thể)
             customers.Data = new CustomersData("Chicago");
 
-            // Exercise the bridge
+            // Dùng bridge để thao tác dữ liệu khách hàng
+            customers.Show();   // Hiển thị bản ghi hiện tại
+            customers.Next();   // Sang bản ghi kế tiếp
+            customers.Show();   // Hiển thị bản ghi hiện tại
+            customers.Next();   // Sang bản ghi kế tiếp
+            customers.Show();   // Hiển thị bản ghi hiện tại
 
-            customers.Show();
-            customers.Next();
-            customers.Show();
-            customers.Next();
-            customers.Show();
-            customers.Add("Henry Velasquez");
+            customers.Add("Henry Velasquez"); // Thêm khách hàng mới
 
-            customers.ShowAll();
+            customers.ShowAll(); // Hiển thị tất cả khách hàng trong thành phố
 
-            // Wait for user
-
+            // Dừng console chờ người dùng nhấn phím
             Console.ReadKey();
         }
     }

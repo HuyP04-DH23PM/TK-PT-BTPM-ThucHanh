@@ -1,9 +1,10 @@
 ﻿public class Video : LibraryItem
 {
-    private string director;
-    private string title;
-    private int playTime;
-    // Constructor
+    private string director; // Đạo diễn
+    private string title;    // Tựa video
+    private int playTime;    // Thời lượng (phút)
+
+    // Hàm khởi tạo: truyền vào đạo diễn, tựa, số bản sao và thời lượng
     public Video(string director, string title, int numCopies, int playTime)
     {
         this.director = director;
@@ -11,12 +12,14 @@
         this.NumCopies = numCopies;
         this.playTime = playTime;
     }
+
+    // Hiển thị thông tin video
     public override void Display()
     {
         Console.WriteLine("\nVideo ----- ");
-        Console.WriteLine(" Director: {0}", director);
-        Console.WriteLine(" Title: {0}", title);
-        Console.WriteLine(" # Copies: {0}", NumCopies);
-        Console.WriteLine(" Playtime: {0}\n", playTime);
+        Console.WriteLine(" Đạo diễn  : {0}", director);
+        Console.WriteLine(" Tựa phim  : {0}", title);
+        Console.WriteLine(" Số bản sao: {0}", NumCopies);
+        Console.WriteLine(" Thời lượng: {0} phút\n", playTime);
     }
 }

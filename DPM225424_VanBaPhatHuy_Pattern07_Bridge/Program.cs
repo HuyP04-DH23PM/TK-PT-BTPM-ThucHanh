@@ -6,20 +6,18 @@ namespace Bridge.Structural
     {
         public static void Main(string[] args)
         {
+            // Tạo Abstraction (ở đây dùng RefinedAbstraction)
             Abstraction ab = new RefinedAbstraction();
 
-            // Set implementation and call
-
+            // Gán Implementor = ConcreteImplementorA và gọi Operation()
             ab.Implementor = new ConcreteImplementorA();
-            ab.Operation();
+            ab.Operation(); // Kết quả: "ConcreteImplementorA Operation"
 
-            // Change implemention and call
-
+            // Đổi Implementor = ConcreteImplementorB và gọi lại Operation()
             ab.Implementor = new ConcreteImplementorB();
-            ab.Operation();
+            ab.Operation(); // Kết quả: "ConcreteImplementorB Operation"
 
-            // Wait for user
-
+            // Dừng console chờ người dùng nhấn phím
             Console.ReadKey();
         }
     }

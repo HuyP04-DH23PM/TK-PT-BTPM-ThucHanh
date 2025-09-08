@@ -1,24 +1,24 @@
-﻿
-    public class Program
+﻿using System;
+
+public class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            // Create ConcreteComponent and two Decorators
+        // Tạo một ConcreteComponent (đối tượng gốc)
+        ConcreteComponent c = new ConcreteComponent();
 
-            ConcreteComponent c = new ConcreteComponent();
-            ConcreteDecoratorA d1 = new ConcreteDecoratorA();
-            ConcreteDecoratorB d2 = new ConcreteDecoratorB();
+        // Tạo hai Decorator cụ thể
+        ConcreteDecoratorA d1 = new ConcreteDecoratorA();
+        ConcreteDecoratorB d2 = new ConcreteDecoratorB();
 
-            // Link decorators
+        // Liên kết decorator: d1 bọc quanh c, d2 bọc quanh d1
+        d1.SetComponent(c);
+        d2.SetComponent(d1);
 
-            d1.SetComponent(c);
-            d2.SetComponent(d1);
+        // Gọi Operation từ decorator ngoài cùng (d2)
+        d2.Operation();
 
-            d2.Operation();
-
-            // Wait for user
-
-            Console.ReadKey();
-        }
+        // Dừng màn hình console chờ người dùng nhấn phím
+        Console.ReadKey();
     }
-
+}

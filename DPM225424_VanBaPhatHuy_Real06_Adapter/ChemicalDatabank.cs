@@ -1,12 +1,13 @@
-﻿/// <summary>
-/// The 'Adaptee' class
-/// </summary>
+﻿using System;
+
+// 'ChemicalDatabank' là lớp Adaptee (API cũ/legacy)
+// Nó cung cấp dữ liệu hóa chất nhưng với giao diện không khớp trực tiếp với Client
 public class ChemicalDatabank
 {
-    // The databank 'legacy API'
+    // Lấy điểm tới hạn (Critical Point) của chất (nhiệt độ nóng chảy hoặc sôi)
     public float GetCriticalPoint(string compound, string point)
     {
-        // Melting Point
+        // "M" = Melting Point (nhiệt độ nóng chảy)
         if (point == "M")
         {
             switch (compound.ToLower())
@@ -17,7 +18,7 @@ public class ChemicalDatabank
                 default: return 0f;
             }
         }
-        // Boiling Point
+        // Nếu không phải "M" → Boiling Point (nhiệt độ sôi)
         else
         {
             switch (compound.ToLower())
@@ -29,16 +30,20 @@ public class ChemicalDatabank
             }
         }
     }
+
+    // Lấy công thức phân tử
     public string GetMolecularStructure(string compound)
     {
         switch (compound.ToLower())
         {
-            case "water": return "H20";
+            case "water": return "H2O";
             case "benzene": return "C6H6";
             case "ethanol": return "C2H5OH";
             default: return "";
         }
     }
+
+    // Lấy khối lượng phân tử
     public double GetMolecularWeight(string compound)
     {
         switch (compound.ToLower())
