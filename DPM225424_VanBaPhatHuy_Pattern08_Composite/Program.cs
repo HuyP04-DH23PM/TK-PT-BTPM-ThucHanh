@@ -15,17 +15,17 @@
             root.Add(comp);
             root.Add(new Leaf("Leaf C"));
 
-            // Add and remove a leaf
+            // Tạo và xoá nút lá
 
             Leaf leaf = new Leaf("Leaf D");
             root.Add(leaf);
             root.Remove(leaf);
 
-            // Recursively display tree
+            // Hiển thị cây đệ quy
 
             root.Display(1);
 
-            // Wait for user
+            // Chờ đợi người dùng
 
             Console.ReadKey();
         }

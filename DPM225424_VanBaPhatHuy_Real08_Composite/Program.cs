@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Composite.RealWorld
-{
-    /// <summary>
-    /// Composite Design Pattern
-    /// </summary>
-
+﻿
     public class Program
     {
         public static void Main(string[] args)
         {
-            // Create a tree structure 
+            // Tạo ra một cây cấu trúc
 
             CompositeElement root = new CompositeElement("Picture");
             root.Add(new PrimitiveElement("Red Line"));
             root.Add(new PrimitiveElement("Blue Circle"));
             root.Add(new PrimitiveElement("Green Box"));
 
-            // Create a branch
+            // Tạo ra các dạng hình
 
             CompositeElement comp = new CompositeElement("Two Circles");
             comp.Add(new PrimitiveElement("Black Circle"));
@@ -41,94 +33,6 @@ namespace Composite.RealWorld
         }
     }
 
-    /// <summary>
-    /// The 'Component' Treenode
-    /// </summary>
 
-    public abstract class DrawingElement
-    {
-        protected string name;
+    
 
-        // Constructor
-
-        public DrawingElement(string name)
-        {
-            this.name = name;
-        }
-
-        public abstract void Add(DrawingElement d);
-        public abstract void Remove(DrawingElement d);
-        public abstract void Display(int indent);
-    }
-
-    /// <summary>
-    /// The 'Leaf' class
-    /// </summary>
-
-    public class PrimitiveElement : DrawingElement
-    {
-        // Constructor
-
-        public PrimitiveElement(string name)
-            : base(name)
-        {
-        }
-
-        public override void Add(DrawingElement c)
-        {
-            Console.WriteLine(
-                "Cannot add to a PrimitiveElement");
-        }
-
-        public override void Remove(DrawingElement c)
-        {
-            Console.WriteLine(
-                "Cannot remove from a PrimitiveElement");
-        }
-
-        public override void Display(int indent)
-        {
-            Console.WriteLine(
-                new String('-', indent) + " " + name);
-        }
-    }
-
-    /// <summary>
-    /// The 'Composite' class
-    /// </summary>
-
-    public class CompositeElement : DrawingElement
-    {
-        List<DrawingElement> elements = new List<DrawingElement>();
-
-        // Constructor
-
-        public CompositeElement(string name)
-            : base(name)
-        {
-        }
-
-        public override void Add(DrawingElement d)
-        {
-            elements.Add(d);
-        }
-
-        public override void Remove(DrawingElement d)
-        {
-            elements.Remove(d);
-        }
-
-        public override void Display(int indent)
-        {
-            Console.WriteLine(new String('-', indent) +
-                "+ " + name);
-
-            // Display each child element on this node
-
-            foreach (DrawingElement d in elements)
-            {
-                d.Display(indent + 2);
-            }
-        }
-    }
-}
