@@ -1,0 +1,15 @@
+﻿public abstract class Component
+{
+    protected string name;
+
+    // Hàm khởi tạo
+
+    public Component(string name)
+    {
+        this.name = name;
+    }
+
+    public abstract void Add(Component c);
+    public abstract void Remove(Component c);
+    public abstract void Display(int depth);
+}
