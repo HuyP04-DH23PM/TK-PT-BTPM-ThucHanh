@@ -318,8 +318,24 @@ Mẫu số 21 - Strategy
 
 - Structual Code (Pattern)
   + Kết quả:
-
+  <img width="555" height="216" alt="image" src="https://github.com/user-attachments/assets/2c5a6b3b-dcf9-429b-947a-eb412bebff0d" />
 - Real code
   + Kết quả:
+  <img width="555" height="216" alt="image" src="https://github.com/user-attachments/assets/79e57c98-f147-43fb-9205-8dcf35f62ec4" />
+  
+#Mẫu số 12 - Template Method
+<span style="color:#00FFFF;"> 
+- Dùng khi: Muốn **cố định khung thuật toán** nhưng cho phép lớp con tùy biến **các bước** cụ thể.
+- Giải quyết: Lớp cha định nghĩa **Template Method** (trình tự bước); lớp con override bước nguyên thủy.
+- Ưu điểm: Tái dùng cao; đảm bảo trình tự; mở rộng có kiểm soát qua hook.
+- Nhược điểm: Phụ thuộc kế thừa (cứng nhắc hơn composition); khó thay đổi khung lúc chạy; base fragile nếu lạm dụng.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="551" height="217" alt="image" src="https://github.com/user-attachments/assets/8d761832-6d69-4733-b9af-d52372c30676" />
+- Real code
+  + Kết quả:
+  <img width="546" height="216" alt="image" src="https://github.com/user-attachments/assets/bff1bc58-e530-4294-a4c1-3df28a84b5e9" />
 
 
