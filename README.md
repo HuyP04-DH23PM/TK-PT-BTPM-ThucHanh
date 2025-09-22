@@ -159,3 +159,167 @@
   + Kết quả:
   <img width="534" height="210" alt="image" src="https://github.com/user-attachments/assets/cae5f828-07e9-4cf6-80fe-adecae043053" />
 
+#Mẫu số 11 - Flyweight
+<span style="color:#00FFFF;"> 
+- Dùng khi: Có rất nhiều đối tượng “vi hạt” tương tự nhau làm tốn RAM; phần lớn trạng thái có thể dùng chung; cần tạo/huỷ nhanh. 
+- Giải quyết: Tách **trạng thái nội sinh** để chia sẻ (flyweight), còn **trạng thái ngoại sinh** truyền vào lúc sử dụng. 
+- Ưu điểm: Tiết kiệm bộ nhớ lớn; giảm chi phí khởi tạo; dễ cache/đệm đối tượng dùng chung. 
+- Nhược điểm: Quản lý trạng thái ngoại sinh phức tạp; tăng độ rối khi debug; cần lưu ý thread-safety. </span>
+
+- Structual Code (Pattern)
+   + Kết quả:
+  <img width="535" height="242" alt="image" src="https://github.com/user-attachments/assets/2a908e38-e6c8-42f0-b12e-b2ef058d536c" />
+- Real code
+  + Kết quả:
+  <img width="529" height="234" alt="image" src="https://github.com/user-attachments/assets/dfe3c1eb-6925-4eef-8423-0d5b01fb42bf" />
+
+#Mẫu số 12 - Proxy
+<span style="color:#00FFFF;"> 
+- Dùng khi: Cần **đại diện/ủy quyền** cho đối tượng thật: kiểm soát truy cập, lazy init, remote proxy, protection, logging, caching.
+- Giải quyết: Tạo lớp Proxy cùng giao diện, **chặn & điều phối** lời gọi đến đối tượng thật (trước/sau có thêm logic).
+- Ưu điểm: Minh bạch với client; hỗ trợ lazy/caching/bảo vệ/log; tách mối quan tâm.
+- Nhược điểm: Thêm tầng gián tiếp → tăng độ trễ/độ phức tạp; phải đồng bộ API với đối tượng thật.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="515" height="124" alt="image" src="https://github.com/user-attachments/assets/e7966d15-df27-4b66-bd3b-3d777e76ea89" />
+- Real code
+  + Kết quả:
+  <img width="476" height="179" alt="image" src="https://github.com/user-attachments/assets/811d8eba-4f01-48dd-bc29-98dd76325e84" />
+
+#Mẫu số 13 - Chain of Responsibility
+<span style="color:#00FFFF;"> 
+- Dùng khi: Có **nhiều handler** tiềm năng; không muốn client biết ai xử lý; quy tắc xử lý có thể thay đổi thứ tự/danh sách.
+- Giải quyết: Xây **chuỗi handler**; request đi dọc chuỗi cho đến khi có handler chấp nhận/ xử lý.
+- Ưu điểm: Giảm kết dính sender–receiver; dễ thêm/bớt/sắp xếp handler; cấu hình linh hoạt.
+- Nhược điểm: Không đảm bảo có ai xử lý; khó debug dòng chảy; có overhead chuyển tiếp.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="726" height="345" alt="image" src="https://github.com/user-attachments/assets/cddfa347-7052-4b5b-89a0-8c19d4b7ae8a" />
+- Real code
+  + Kết quả:
+  <img width="669" height="279" alt="image" src="https://github.com/user-attachments/assets/886c49a0-8acf-4220-b980-49c9d0f0f884" />
+
+#Mẫu số 14 - Command
+<span style="color:#00FFFF;"> 
+- Dùng khi: Cần **đóng gói yêu cầu** thành đối tượng để hỗ trợ undo/redo, log, queue, macro; tách Invoker khỏi Receiver.
+- Giải quyết: Lớp `Command` chứa hành động + dữ liệu; Invoker gọi, Receiver thi hành.
+- Ưu điểm: Hỗ trợ undo/redo & lịch/queue; ghép lệnh thành macro; mở rộng dễ (OCP).
+- Nhược điểm: Tăng số lượng lớp; boilerplate; cần quản lý lịch sử lệnh.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="483" height="142" alt="image" src="https://github.com/user-attachments/assets/b17381f3-a847-4346-8ba1-ae97e1ee2c9b" />
+- Real code
+  + Kết quả:
+  <img width="474" height="141" alt="image" src="https://github.com/user-attachments/assets/dc1a7335-f134-40af-9cab-f012fccce50d" />
+
+#Mẫu số 15 - Interpreter
+<span style="color:#00FFFF;"> 
+- Dùng khi: Cần nhúng **ngôn ngữ mini/DSL nhỏ** (biểu thức, luật, filter) vào chương trình.
+- Giải quyết: Mô hình hóa ngữ pháp thành cây biểu thức (AST) và **thông dịch** qua các lớp Expression.
+- Ưu điểm: Dễ mở rộng ngữ pháp miền hẹp; cấu trúc rõ ràng; kiểm thử từng non/terminal dễ.
+- Nhược điểm: Hiệu năng kém cho ngữ pháp lớn; “nổ” lớp; với DSL phức tạp nên dùng parser/engine chuyên dụng.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="477" height="140" alt="image" src="https://github.com/user-attachments/assets/375ae72b-b8fa-4dc0-bc90-0e499ea7dce4" />
+- Real code
+  + Kết quả:
+  <img width="477" height="145" alt="image" src="https://github.com/user-attachments/assets/6581b744-34b0-4e4a-9d31-ace0df29aa61" />
+
+#Mẫu số 16 - Iterator
+<span style="color:#00FFFF;"> 
+- Dùng khi: Muốn **duyệt tuần tự** phần tử mà không lộ cấu trúc lưu trữ; cần nhiều kiểu duyệt độc lập.
+- Giải quyết: Cung cấp **iterator** tách biệt với collection để điều hướng (first/next/current/isDone).
+- Ưu điểm: API duyệt thống nhất; hỗ trợ nhiều iterator song song; thay đổi cấu trúc mà không đổi cách duyệt.
+- Nhược điểm: Overhead đối tượng/biên giới; invalidation khi collection thay đổi; nhiều ngôn ngữ hiện đại đã có sẵn.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="590" height="255" alt="image" src="https://github.com/user-attachments/assets/0314f5ef-6a98-4640-a242-c369c132b308" />
+- Real code
+  + Kết quả:
+  <img width="596" height="258" alt="image" src="https://github.com/user-attachments/assets/36fd7cb1-1aa7-459c-bb12-dd35e56b5ee4" />
+
+#Mẫu số 17 - Mediator
+<span style="color:#00FFFF;"> 
+- Dùng khi: Quan hệ **nhiều–nhiều** giữa các đối tượng làm hệ thống rối (ví dụ UI widgets).
+- Giải quyết: Gom **logic tương tác** vào một Mediator trung tâm; các colleague chỉ nói chuyện với Mediator.
+- Ưu điểm: Giảm kết dính đồng nghiệp; giao thức tương tác rõ ràng; thay đổi hành vi tương tác dễ.
+- Nhược điểm: Mediator dễ thành “god object”; dồn phức tạp vào một chỗ; cần tách nhỏ khi lớn.
+- </span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="595" height="254" alt="image" src="https://github.com/user-attachments/assets/861be383-e58e-4d7a-8ba9-d7a5fa74aa7c" />
+- Real code
+  + Kết quả:
+  <img width="592" height="253" alt="image" src="https://github.com/user-attachments/assets/811c2ef9-a097-488e-993e-7ee0a816685e" />
+
+#Mẫu số 18 - Memento
+<span style="color:#00FFFF;"> 
+- Dùng khi: Cần **lưu & khôi phục** trạng thái nội bộ (undo/redo, rollback) mà vẫn giữ bao đóng.
+- Giải quyết: Tạo **ảnh chụp trạng thái** (Memento) do Originator phát sinh; Caretaker cất giữ.
+- Ưu điểm: Undo/redo tự nhiên; không lộ chi tiết nội bộ; time-travel trạng thái.
+- Nhược điểm: Tốn bộ nhớ/serialize; quản lý vòng đời memento; nguy cơ rò rỉ nếu lưu quá nhiều.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+  <img width="594" height="250" alt="image" src="https://github.com/user-attachments/assets/cbce18fb-5148-481f-8dcf-4e245271cf79" />
+- Real code
+  + Kết quả:
+  <img width="764" height="424" alt="image" src="https://github.com/user-attachments/assets/7a00658e-386c-4f50-b1c5-142d31e75681" />
+
+#Mẫu số 19 - Observer
+<span style="color:#00FFFF;"> 
+- Dùng khi: Nhiều bên cần **nhận thông báo** khi Subject đổi trạng thái (GUI, MV*, event bus).
+- Giải quyết: Subject quản danh sách observer và **Notify()** khi thay đổi.
+- Ưu điểm: Kết dính lỏng; mở rộng dễ; mô hình sự kiện tự nhiên.
+- Nhược điểm: Thứ tự/bội số cập nhật khó kiểm soát; memory leak do quên detach; khó debug chuỗi sự kiện.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+    <img width="488" height="187" alt="image" src="https://github.com/user-attachments/assets/c7e40ffb-74de-4b80-b0d5-eba5dd407ee0" />
+- Real code
+  + Kết quả:
+    <img width="662" height="181" alt="image" src="https://github.com/user-attachments/assets/df98175e-6c84-491f-9c1d-c89cc3c4b131" />
+
+Mẫu số 20 - State
+<span style="color:#00FFFF;"> 
+- Dùng khi: Hành vi **phụ thuộc trạng thái** và thay đổi theo thời gian; có nhiều `if/else` theo state.
+- Giải quyết: Đưa logic theo trạng thái vào các lớp **State**; Context ủy quyền và chuyển state động.
+- Ưu điểm: Loại bỏ switch lớn; gom logic theo state; thêm state mới không đụng code cũ (OCP).
+- Nhược điểm: Nhiều lớp nhỏ; quản lý chuyển state phân tán; có overhead khởi tạo/chuyển đổi.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+    <img width="553" height="214" alt="image" src="https://github.com/user-attachments/assets/497bd75f-1641-4208-98d7-2697732d096b" />
+- Real code
+  + Kết quả:
+    <img width="551" height="217" alt="image" src="https://github.com/user-attachments/assets/61dee67d-dfb0-40ae-a9bc-fef2a5f57322" />
+
+Mẫu số 21 - Strategy
+<span style="color:#00FFFF;"> 
+- Dùng khi: Có **nhiều thuật toán tương đương**; muốn hoán đổi lúc chạy; tránh `if/else` chọn thuật toán.
+- Giải quyết: Định nghĩa giao diện Strategy; mỗi thuật toán là một lớp, **thay thế lẫn nhau**.
+- Ưu điểm: Linh hoạt; tuân OCP; dễ test/so sánh; kết hợp với DI chọn chiến lược.
+- Nhược điểm: Tăng số lớp; client cần biết/tiêm đúng chiến lược; overhead gọi gián tiếp.
+</span>
+
+- Structual Code (Pattern)
+  + Kết quả:
+
+- Real code
+  + Kết quả:
+
+
