@@ -1,4 +1,6 @@
-﻿public class Mortgage
+﻿using System.Text;
+
+public class Mortgage
 {
     // Các subsystem: ngân hàng, khoản vay, tín dụng
     Bank bank = new Bank();
@@ -8,6 +10,7 @@
     // Kiểm tra xem khách hàng có đủ điều kiện vay không
     public bool IsEligible(Customer cust, int amount)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine("{0} xin vay số tiền {1:C}\n",
             cust.Name, amount);
 

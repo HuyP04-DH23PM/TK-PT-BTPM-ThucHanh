@@ -1,4 +1,6 @@
-﻿public class Borrowable : Decorator
+﻿using System.Text;
+
+public class Borrowable : Decorator
 {
     // Danh sách người đang mượn item này
     protected readonly List<string> borrowers = new List<string>();
@@ -29,6 +31,7 @@
         base.Display();
         foreach (string borrower in borrowers)
         {
+            Console.OutputEncoding = Encoding.UTF8; // Quan trọng
             Console.WriteLine(" Người mượn: " + borrower);
         }
     }

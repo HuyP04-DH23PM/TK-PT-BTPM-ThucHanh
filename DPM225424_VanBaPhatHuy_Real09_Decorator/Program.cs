@@ -1,7 +1,10 @@
-﻿public class Program
+﻿using System.Text;
+
+public class Program
 {
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8; // Quan trọng
         // Tạo một quyển sách và hiển thị thông tin
         Book book = new Book("Worley", "Inside ASP.NET", 10);
         book.Display();

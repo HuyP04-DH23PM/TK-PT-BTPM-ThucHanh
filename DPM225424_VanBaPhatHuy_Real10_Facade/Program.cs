@@ -1,7 +1,10 @@
-﻿public class Program
+﻿using System.Text;
+
+public class Program
 {
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         // Tạo đối tượng Facade (Mortgage)
         Mortgage mortgage = new Mortgage();
 

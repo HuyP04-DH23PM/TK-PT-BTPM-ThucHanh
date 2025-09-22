@@ -1,4 +1,6 @@
-﻿public class Book : LibraryItem
+﻿using System.Text;
+
+public class Book : LibraryItem
 {
     private string author; // Tác giả
     private string title;  // Tựa sách
@@ -14,6 +16,7 @@
     // Hiển thị thông tin sách
     public override void Display()
     {
+        Console.OutputEncoding = Encoding.UTF8; // Quan trọng
         Console.WriteLine("\nBook ------ ");
         Console.WriteLine(" Tác giả   : {0}", author);
         Console.WriteLine(" Tựa sách  : {0}", title);
