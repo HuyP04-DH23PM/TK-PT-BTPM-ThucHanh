@@ -323,7 +323,7 @@ Mẫu số 21 - Strategy
   + Kết quả:
   <img width="555" height="216" alt="image" src="https://github.com/user-attachments/assets/79e57c98-f147-43fb-9205-8dcf35f62ec4" />
   
-#Mẫu số 12 - Template Method
+#Mẫu số 22 - Template Method
 <span style="color:#00FFFF;"> 
 - Dùng khi: Muốn **cố định khung thuật toán** nhưng cho phép lớp con tùy biến **các bước** cụ thể.
 - Giải quyết: Lớp cha định nghĩa **Template Method** (trình tự bước); lớp con override bước nguyên thủy.
