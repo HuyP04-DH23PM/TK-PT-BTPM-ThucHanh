@@ -1,77 +1,47 @@
-﻿using FolderTreeApp.Services;
+﻿using System;
+using System.Text;
 
-Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-// Đặt đường dẫn file đặc tả
-var spec = Path.Combine(AppContext.BaseDirectory, "tree.txt");
-
-// Nếu chưa có file mẫu thì tạo sẵn để người dùng sửa
-if (!File.Exists(spec))
+class Program
 {
-    File.WriteAllText(spec, """
-C:\
-  A/
-    A.app
-    A1.doc
-    A2.txt
-    A22.doc
-  B/
-    B.txt
-  C/
-    C1/
-      C1.doc
-      C12.exe
-""");
-    Console.WriteLine("Đã tạo tree.txt mẫu. Hãy sửa rồi chạy lại.");
-    return;
-}
-
-// Xây cây và in ra
-var root = TreeBuilder.BuildFromSpec(spec);
-Console.WriteLine("📂 Cấu trúc thư mục (từ tree.txt):");
-root.Display();
-
-// (Tuỳ chọn) Hỏi có muốn tạo thật ra ổ đĩa không
-Console.Write("\nTạo thật ra ổ đĩa? (y/n): ");
-if (Console.ReadLine()?.Trim().ToLower() == "y")
-{
-    CreateRealFolders(spec);
-    Console.WriteLine("✅ Đã tạo xong.");
-}
-
-// ===== Helper tạo thật =====
-static void CreateRealFolders(string specPath)
-{
-    var lines = File.ReadAllLines(specPath);
-    var pathStack = new Stack<(int indent, string path)>();
-    foreach (var raw in lines)
+    static void Main()
     {
-        if (string.IsNullOrWhiteSpace(raw)) continue;
-        int indent = raw.TakeWhile(char.IsWhiteSpace).Count();
-        string name = raw.Trim();
-        bool isDir = name.EndsWith("/");
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.InputEncoding = Encoding.UTF8;
 
-        while (pathStack.Count > 0 && indent <= pathStack.Peek().indent) pathStack.Pop();
-        string parent = pathStack.Count == 0 ? "" : pathStack.Peek().path;
+        // Cây thư mục theo ví dụ
+        FolderItem root = new FolderItem("C:\\");
 
-        // root (C:\) giữ nguyên
-        if (pathStack.Count == 0)
-        {
-            pathStack.Push((indent, name.TrimEnd('/')));
-            continue;
-        }
+        FolderItem A = new FolderItem("A");
+        A.Add(new FileItem("A.cpp"));
 
-        string full = Path.Combine(parent, name.TrimEnd('/'));
+        // Sửa lại cách thêm thư mục con A1
+        FolderItem A1 = new FolderItem("A1");
+        A1.Add(new FileItem("A1.doc"));
+        A.Add(A1);
 
-        if (isDir)
-        {
-            Directory.CreateDirectory(full);
-            pathStack.Push((indent, full));
-        }
-        else
-        {
-            Directory.CreateDirectory(parent);
-            if (!File.Exists(full)) File.WriteAllText(full, "");
-        }
+        FolderItem A2 = new FolderItem("A2");
+        A2.Add(new FileItem("A2.1.txt"));
+        A2.Add(new FileItem("A2.2.doc"));
+        A.Add(A2);
+        root.Add(A);
+
+        FolderItem B = new FolderItem("B");
+        B.Add(new FileItem("B.txt"));
+        root.Add(B);
+
+        FolderItem C = new FolderItem("C");
+        FolderItem C1 = new FolderItem("C1");
+        C1.Add(new FileItem("C1.1.doc"));
+        C1.Add(new FileItem("C1.2.exe"));
+        C.Add(C1);
+        root.Add(C);
+
+        // Hiển thị cây và dung lượng
+        Console.WriteLine("\nCây thư mục:");
+        root.Display(0);
+
+        Console.WriteLine($"\nTổng dung lượng ổ C: {root.GetSize()} KB");
+
+        Console.ReadKey();
     }
 }
