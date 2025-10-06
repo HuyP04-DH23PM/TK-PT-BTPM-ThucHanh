@@ -12,7 +12,22 @@ public class Folder : INode
 
     public void Display(string indent = "")
     {
-        Console.WriteLine($"{indent}📁 {Name}");
+        Console.WriteLine($"{indent}📁 {Name} ({FormatSize(GetSize())})");
         foreach (var c in _children) c.Display(indent + "   ");
+    }
+
+    public long GetSize()
+    {
+        long total = 0;
+        foreach (var c in _children)
+            total += c.GetSize();
+        return total;
+    }
+
+    private static string FormatSize(long bytes)
+    {
+        if (bytes > 1024 * 1024) return $"{bytes / 1024.0 / 1024.0:F2} MB";
+        if (bytes > 1024) return $"{bytes / 1024.0:F2} KB";
+        return $"{bytes} B";
     }
 }
