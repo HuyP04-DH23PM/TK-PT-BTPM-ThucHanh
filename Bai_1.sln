@@ -135,7 +135,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPM225424_VanBaPhatHuy_MyRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPM225424_VanBaPhatHuy_MyReal22_TemplateMethod", "DPM225424_VanBaPhatHuy_MyReal22_TemplateMethod\DPM225424_VanBaPhatHuy_MyReal22_TemplateMethod.csproj", "{C12893EC-DDD3-4D5E-A79E-F749A560332D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderTreeApp", "FolderTreeApp\FolderTreeApp.csproj", "{199DBC9A-77B0-4B03-AF54-6CBA41D44DF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaiKiemTraMau", "..\..\..\..\Documents\BaiKiemTra\BaiKiemTraMau\BaiKiemTraMau.csproj", "{D94C11C3-7B6A-BA0D-0ADF-63582838D2FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -407,10 +407,10 @@ Global
 		{C12893EC-DDD3-4D5E-A79E-F749A560332D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C12893EC-DDD3-4D5E-A79E-F749A560332D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C12893EC-DDD3-4D5E-A79E-F749A560332D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{199DBC9A-77B0-4B03-AF54-6CBA41D44DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{199DBC9A-77B0-4B03-AF54-6CBA41D44DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{199DBC9A-77B0-4B03-AF54-6CBA41D44DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{199DBC9A-77B0-4B03-AF54-6CBA41D44DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94C11C3-7B6A-BA0D-0ADF-63582838D2FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94C11C3-7B6A-BA0D-0ADF-63582838D2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94C11C3-7B6A-BA0D-0ADF-63582838D2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94C11C3-7B6A-BA0D-0ADF-63582838D2FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
